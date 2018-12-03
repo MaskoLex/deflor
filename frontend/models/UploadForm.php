@@ -9,19 +9,21 @@ class UploadForm extends Model
     /**
      * @var UploadedFile
      */
-    public $imageFile;
+    public $img;
 
     public function rules()
     {
         return [
-            [['imageFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg'],
+            [['img'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg','maxFiles' => 4],
         ];
     }
 
     public function upload()
     {
         if ($this->validate()) {
-            $this->imageFile->saveAs('img/' . $this->imageFile->baseName . '.' . $this->imageFile->extension);
+            foreach ($this->img as $file) {
+                $file->saveAs('img/' . $file->baseName . '.' . $file->extension);
+            }
             return true;
         } else {
             return false;

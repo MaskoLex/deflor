@@ -38,7 +38,7 @@
         "kartik-v/yii2-widget-touchspin": "*",
         "kartik-v/yii2-widget-typeahead": "*",
         "dmstr/yii2-adminlte-asset": "^1",
-        "yiisoft/yii2-imagine": "~2.1.0"
+        "yurkinx/yii2-image": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

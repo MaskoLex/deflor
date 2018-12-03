@@ -13,6 +13,10 @@ return [
     'bootstrap' => ['log'],
     'modules' => [],
     'components' => [
+        'image' => [
+            'class' => 'yii\image\ImageDriver',
+            'driver' => 'GD',  //GD or Imagick
+        ],
         'request' => [
             'csrfParam' => '_csrf-backend',
         ],
