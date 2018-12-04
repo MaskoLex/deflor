@@ -22,6 +22,7 @@ use yii\web\UploadedFile;
  */
 class SiteController extends Controller
 {
+    const FINISH = 1;
     /**
      * {@inheritdoc}
      */
@@ -221,15 +222,12 @@ class SiteController extends Controller
     public function actionUpload()
     {
         $model = new UploadForm();
-
+        $model->img = UploadedFile::getInstances($model, 'img');
         if (Yii::$app->request->isPost) {
-            $model->img = UploadedFile::getInstances($model, 'img');
             if ($model->upload()) {
-                // file is uploaded successfully
-                return;
+                return static::FINISH;
             }
         }
-
         return $this->render('upload', ['model' => $model]);
     }
 }
