@@ -11,8 +11,8 @@ use yii\helpers\FileHelper;
     'pluginOptions' => [
         'uploadUrl' => Url::to(['/site/upload']),
         'uploadExtraData' => [
-//            'album_id' => 20,
- //           'cat_id' => 'Nature'
+       //     'album_id' => 20,
+           // 'cat_id' => 'Nature'
         ],
         'maxFileCount' => 10
     ]

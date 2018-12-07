@@ -3,6 +3,7 @@ namespace frontend\models;
 
 use yii\base\Model;
 use yii\web\UploadedFile;
+use yii\helpers\FileHelper;
 
 class UploadForm extends Model
 {
@@ -14,19 +15,22 @@ class UploadForm extends Model
     public function rules()
     {
         return [
-            [['img'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg','maxFiles' => 4],
+            [['img'], 'image', 'skipOnEmpty' => false, 'extensions' => 'png, jpg','maxFiles' => 50],
         ];
     }
-
-    public function upload()
+/*
+    public function upload($catalog)
     {
         if ($this->validate()) {
+            FileHelper::createDirectory('img/'.$catalog);
             foreach ($this->img as $file) {
-                $file->saveAs('img/' . $file->baseName . '.' . $file->extension);
+                $file->saveAs('img/'.$catalog.'/'. $file->baseName . '.' . $file->extension);
             }
             return true;
         } else {
             return false;
         }
     }
+*/
+
 }

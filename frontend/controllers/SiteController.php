@@ -223,11 +223,11 @@ class SiteController extends Controller
     {
         $model = new UploadForm();
         $model->img = UploadedFile::getInstances($model, 'img');
-        if (Yii::$app->request->isPost) {
-            if ($model->upload()) {
-                return static::FINISH;
+         if (Yii::$app->request->isPost) {
+            if ($model->upload('new')) {
+                return true;
             }
-        }
+         }
         return $this->render('upload', ['model' => $model]);
     }
 }
